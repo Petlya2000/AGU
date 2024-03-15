@@ -33,7 +33,7 @@ $sql7 = "SELECT * FROM `languages`";
          // Store the Ankety_otch in a "otch" variable
         $otch = mysqli_real_escape_string($con,$_POST['Ankety_otch']);
         // Store the date_birth in a "dob" variable
-       $dob = date('Y-m-d', strtotime($date_birth));
+       $dob = date('Y-m-d', strtotime(($_POST['dateofbirth'])));
         // Store the reg_id in a "id" variable
         $id = mysqli_real_escape_string($con,$_POST['Region']); 
         // Store the document in a "doc" variable
@@ -87,3 +87,206 @@ $sql7 = "SELECT * FROM `languages`";
      }
     }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html">
+<link rel="stylesheet" href="style.css"  type="text/css">
+ <title>Ввод данных в анкету</title>
+</head>
+<body>
+    <form method="POST">
+     <label>Фамилия студента:</label>
+        <input type="text" name="Ankety_fam" required><br>
+        <label>Имя студента:</label>
+        <input type="text" name="Ankety_name1" required><br>
+     <label>Отчество студента:</label>
+        <input type="text" name="Ankety_name1" required><br>
+     <label>Дата рождения:</label>
+      <input type="date" name="dateofbirth" required> <br>
+     <label>Регион</label>
+     <select name="Region"><?php 
+                // use a while loop to fetch data 
+                // from the $all_categories variable 
+                // and individually display as an option
+                while ($region = mysqli_fetch_array(
+                        $all_regions,MYSQLI_ASSOC)):; 
+            ?>
+                <option value="<?php echo $region["id_region"];
+                    // The value we usually set is the primary key
+                ?>">
+                    <?php echo $region["reg_name"];
+                        // To show the category name to the user
+                    ?>
+                </option>
+            <?php 
+                endwhile; 
+                // While loop must be terminated
+            ?>
+        </select>
+        <br>
+      <label>Док-нт удостоверяющий личность:</label>
+        <input type="text" name="document" required><br>
+     <label>Национальность</label>
+     <select name="Nationality"><?php 
+                // use a while loop to fetch data 
+                // from the $all_categories variable 
+                // and individually display as an option
+                while ($nationalities = mysqli_fetch_array(
+                        $all_nationalities,MYSQLI_ASSOC)):; 
+            ?>
+                <option value="<?php echo $nationalities["nation_id"];
+                    // The value we usually set is the primary key
+                ?>">
+                    <?php echo $nationalities["nation_name"];
+                        // To show the category name to the user
+                    ?>
+                </option>
+            <?php 
+                endwhile; 
+                // While loop must be terminated
+            ?>
+        </select>
+        <br>
+     <label>Страна</label>
+     <select name="Country"><?php 
+                // use a while loop to fetch data 
+                // from the $all_categories variable 
+                // and individually display as an option
+                while ($countries = mysqli_fetch_array(
+                        $all_countries,MYSQLI_ASSOC)):; 
+            ?>
+                <option value="<?php echo $countries["country_id"];
+                    // The value we usually set is the primary key
+                ?>">
+                    <?php echo $countries["country_name"];
+                        // To show the category name to the user
+                    ?>
+                </option>
+            <?php 
+                endwhile; 
+                // While loop must be terminated
+            ?>
+        </select>
+        <br>
+     <label>Пол</label>
+     <select name="Gender"><?php 
+                // use a while loop to fetch data 
+                // from the $all_categories variable 
+                // and individually display as an option
+                while ($genders = mysqli_fetch_array(
+                        $all_genders,MYSQLI_ASSOC)):; 
+            ?>
+                <option value="<?php echo $genders["gend_id"];
+                    // The value we usually set is the primary key
+                ?>">
+                    <?php echo $genders["gend_name"];
+                        // To show the category name to the user
+                    ?>
+                </option>
+            <?php 
+                endwhile; 
+                // While loop must be terminated
+            ?>
+        </select>
+        <br>
+        <label>Военная служба</label>
+     <select name="Milit_serve"><?php 
+                // use a while loop to fetch data 
+                // from the $all_categories variable 
+                // and individually display as an option
+                while ($vid_mili_services = mysqli_fetch_array(
+                        $all_vid_mili_services,MYSQLI_ASSOC)):; 
+            ?>
+                <option value="<?php echo $vid_mili_services["vid_milit_serv_id"];
+                    // The value we usually set is the primary key
+                ?>">
+                    <?php echo $vid_mili_services["vid_milit_serv_name"];
+                        // To show the category name to the user
+                    ?>
+                </option>
+            <?php 
+                endwhile; 
+                // While loop must be terminated
+            ?>
+        </select>
+        <br>
+     <label>Док-нт о военной службе:</label>
+        <input type="text" name="document_mil" required><br>
+     <label>Дом. телефон:</label>
+        <input type="text" name="Telhome" ><br>
+     <label>Моб. телефон:</label>
+        <input type="text" name="Telmob" ><br>
+     <label>Уч. заведение</label>
+     <select name="Uch_zav"><?php 
+                // use a while loop to fetch data 
+                // from the $all_categories variable 
+                // and individually display as an option
+                while ($uch_zaves = mysqli_fetch_array(
+                        $all_uch_zaves,MYSQLI_ASSOC)):; 
+            ?>
+                <option value="<?php echo $uch_zaves["uch_zav_id"];
+                    // The value we usually set is the primary key
+                ?>">
+                    <?php echo $vid_mili_services["uch_zav_name"];
+                        // To show the category name to the user
+                    ?>
+                </option>
+            <?php 
+                endwhile; 
+                // While loop must be terminated
+            ?>
+        </select>
+        <br>
+     <label>Док-нт от уч. заведения:</label>
+        <input type="text" name="document_educ" ><br>
+     <label>Трудовой стаж</label>
+       <br>
+     <input type="radio" name="q1" value="0"> Нет<br>
+     <input type="radio" name="q1" value="1"> Да<br>
+      <br>
+     <label>Данные о трудовом стаже:</label>
+        <input type="text" name="document_trud" ><br>
+     <label>Инностр. язык в школах</label>
+        <select name="Language">
+            <?php 
+                // use a while loop to fetch data 
+                // from the $all_categories variable 
+                // and individually display as an option
+                while ($languages = mysqli_fetch_array(
+                        $all_languages,MYSQLI_ASSOC)):; 
+            ?>
+                <option value="<?php echo $languages["language_id "];
+                    // The value we usually set is the primary key
+                ?>">
+                    <?php echo $languages["languages_name"];
+                        // To show the category name to the user
+                    ?>
+                </option>
+            <?php 
+                endwhile; 
+                // While loop must be terminated
+            ?>
+        </select>
+        <br>
+     <label>Нужда в общежитии</label>
+       <br>
+     <input type="radio" name="q2" value="0"> Нет<br>
+     <input type="radio" name="q2" value="1"> Да<br>
+      <br>
+     <label>Док-нты на льготы(реком-ные письма):</label>
+        <input type="text" name="vip" ><br>
+     <label>Данные о матери (ФИО, номер телефона):</label>
+        <input type="text" name="Mother" ><br>
+     <label>Данные об отце (ФИО, номер телефона):</label>
+        <input type="text" name="Father" ><br>
+      <br>
+        <input type="submit" value="submit" name="submit">
+    </form>
+    <br>
+ <form method="post" action="alldata.php">
+<input id="submitover" type="submit" value="Показать всех"><b/>
+</form>
+</body>
+</html>
