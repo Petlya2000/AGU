@@ -5,11 +5,22 @@
     // mysqli_connect("servername","username","password","database_name")
   
     // Get all the categories from category table
-    $sql = "SELECT * FROM `category`";
-    $all_categories = mysqli_query($con,$sql);
-    $sql1 = "SELECT * FROM `type`";
-    $all_types = mysqli_query($con,$sql1);
-  
+    $sql = "SELECT * FROM `spr_region`";
+    $all_regions = mysqli_query($con,$sql);
+    $sql1 = "SELECT * FROM `nationality`";
+    $all_nationalities = mysqli_query($con,$sql1);
+   $sql2 = "SELECT * FROM `countries`";
+    $all_countries = mysqli_query($con,$sql2);
+     $sql3 = "SELECT * FROM `gender`";
+    $all_genders = mysqli_query($con,$sql3);
+$sql4 = "SELECT * FROM `vid_mili_serv`";
+    $all_vid_mili_services = mysqli_query($con,$sql4);
+ $sql5 = "SELECT * FROM `uch_zav`";
+    $all_uch_zaves = mysqli_query($con,$sql5);
+$sql6 = "SELECT * FROM `languages`";
+    $all_languages = mysqli_query($con,$sql6);
+$sql7 = "SELECT * FROM `languages`";
+    $all_languages = mysqli_query($con,$sql6);
     // The following code checks if the submit button is clicked 
     // and inserts the data in the database accordingly
     if(isset($_POST['submit']))
