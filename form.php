@@ -25,17 +25,51 @@ $sql7 = "SELECT * FROM `languages`";
     // and inserts the data in the database accordingly
     if(isset($_POST['submit']))
     {
-     if(isset($_POST['q1'])){
-      
-        // Store the Product name in a "name" variable
-        $name = mysqli_real_escape_string($con,$_POST['Product_name']);
-         // Store the Product fam in a "fam" variable
-       $fam = mysqli_real_escape_string($con,$_POST['Product_fam']);
-        // Store the Category ID in a "id" variable
-        $id = mysqli_real_escape_string($con,$_POST['Category']); 
-        
-        $id1 = mysqli_real_escape_string($con,$_POST['Type']); 
+     if(isset($_POST['q1'])&&isset($_POST['q2'])){
+      // Store the Ankety_fam in a "fam" variable
+       $fam = mysqli_real_escape_string($con,$_POST['Ankety_fam']);
+        // Store the Ankety_name1 in a "name" variable
+        $name = mysqli_real_escape_string($con,$_POST['Ankety_name1']);
+         // Store the Ankety_otch in a "otch" variable
+        $otch = mysqli_real_escape_string($con,$_POST['Ankety_otch']);
+        // Store the date_birth in a "dob" variable
+       $dob = date('Y-m-d', strtotime($date_birth));
+        // Store the reg_id in a "id" variable
+        $id = mysqli_real_escape_string($con,$_POST['Region']); 
+        // Store the document in a "doc" variable
+       $doc = mysqli_real_escape_string($con,$_POST['document']);
+              // Store the nationality_id in a "id1" variable
+        $id1 = mysqli_real_escape_string($con,$_POST['Nationality']); 
+      // Store the country_id in a "id2" variable
+        $id2 = mysqli_real_escape_string($con,$_POST['Country']);
+      // Store the gender_id in a "id3" variable
+        $id3 = mysqli_real_escape_string($con,$_POST['Gender']);
+      // Store the vid_milit_serv_id in a "id4" variable
+        $id4 = mysqli_real_escape_string($con,$_POST['Milit_serve']);
+      // Store the 	document_mil in a "doc_mil" variable
+       $doc_mil = mysqli_real_escape_string($con,$_POST['document_mil']);
+      // Store the tel_home in a "tel1" variable
+       $tel1 = mysqli_real_escape_string($con,$_POST['Telhome']);
+      // Store the tel_mob in a "tel2" variable
+       $tel2 = mysqli_real_escape_string($con,$_POST['Telmob']);
+      // Store the uch_zav_id in a "id5" variable
+        $id5 = mysqli_real_escape_string($con,$_POST['Uch_zav']);
+      // Store the document_educ in a "doc_edc" variable
+       $doc_edc = mysqli_real_escape_string($con,$_POST['document_educ']);
+      // Store the trud_st in a "q1" variable
         $q1=$_POST['q1'];
+      // Store the 	document_trud in a "doc_trd" variable
+       $doc_trd = mysqli_real_escape_string($con,$_POST['document_trud']);
+      // Store the language_id in a "id6" variable
+        $id6 = mysqli_real_escape_string($con,$_POST['Language']);
+      // Store the LIVING in a "q2" variable
+        $q2=$_POST['q2'];
+      // Store the 	vip_letter in a "vip" variable
+       $vip = mysqli_real_escape_string($con,$_POST['vip']);
+      // Store the mother in a "mother" variable
+       $mother = mysqli_real_escape_string($con,$_POST['Mother']);
+      // Store the 	father in a "	father" variable
+       $father= mysqli_real_escape_string($con,$_POST['Father']);
         // Creating an insert query using SQL syntax and
         // storing it in a variable.
         $sql_insert = 
