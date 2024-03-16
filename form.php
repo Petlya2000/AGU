@@ -74,7 +74,7 @@ $sql7 = "SELECT * FROM `languages`";
         // Creating an insert query using SQL syntax and
         // storing it in a variable.
         $sql_insert = 
-        "INSERT INTO `ankety`(`Ankety_fam`,`Ankety_name1`,`Ankety_otch`,`date_birth`, `reg_id`,`document`,`nationality_id`,`country_id`,`gender_id`,`vid_milit_serv_id`,`document_mil`,`tel_home`,`tel_mob`,`uch_zav_id`,`document_educ`,`srednbal,`trud_st`,`document_trud`,`language_id`,`LIVING`,`vip_letter`,`mother`,`father`)
+        "INSERT INTO `ankety`(`Ankety_fam`,`Ankety_name1`,`Ankety_otch`,`date_birth`, `reg_id`,`document`,`nationality_id`,`country_id`,`gender_id`,`vid_milit_serv_id`,`document_mil`,`tel_home`,`tel_mob`,`uch_zav_id`,`document_educ`,`srednbal`,`trud_st`,`document_trud`,`language_id`,`LIVING`,`vip_letter`,`mother`,`father`)
             VALUES ('$fam','$name','$otch','$dob','$id','$doc','$id1','$id2','$id3','$id4','$doc_mil','$tel1','$tel2','$id5','$doc_edc','$sred','$q1','$doc_trd','$id6','$q2','$vip','$mother','$father')";
           
           // The following code attempts to execute the SQL query
