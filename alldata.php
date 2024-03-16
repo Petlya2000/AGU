@@ -1,6 +1,6 @@
 <?php
     require_once 'conn.php';
-   $sql_select="SELECT * FROM ankety INNER JOIN spr_region ON ankety.reg_id = spr_region.id_region INNER JOIN gender ON ankety.gender_id = gender.gend_id INNER JOIN nationality ON ankety.nationality_id = nationality.nation_id ;";
+   $sql_select="SELECT * FROM ankety INNER JOIN spr_region ON ankety.reg_id = spr_region.id_region INNER JOIN gender ON ankety.gender_id = gender.gend_id INNER JOIN nationality ON ankety.nationality_id = nationality.nation_id ORDER BY ankety.Ankety_id ASC;";
   $result=mysqli_query($con,$sql_select);
 ?>
   
