@@ -25,10 +25,10 @@ if($row) { printf("<p><b>Номер студента: ".$row['Ankety_id']."</b><
 else { echo ("Такой записи в базе нет"); }
 }
 ?>
-<form method='post' action='allauthor.php'><b/>
+<form method='post' action='alldata.php'><b/>
 <input id='submitread'  type='submit' value="Вернуться к поиску"><b/><b/>
 </form>
-<form method="post" action="index.html">
+<form method="post" action="form.php">
 <input id="submitback" type="submit" value="На главную">
 </form>
 </body>
