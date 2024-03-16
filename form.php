@@ -94,9 +94,9 @@ $sql7 = "SELECT * FROM `languages`";
    <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html">
  <title>Ввод данных в анкету</title>
-<h1>Ввод данных в анкету</h1>
 </head>
 <body>
+ <h1>Ввод данных в анкету</h1>
     <form method="POST">
      <label>Фамилия студента:</label>
         <input type="text" name="Ankety_fam" required><br>
