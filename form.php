@@ -70,11 +70,12 @@ $sql7 = "SELECT * FROM `languages`";
        $mother = mysqli_real_escape_string($con,$_POST['Mother']);
       // Store the 	father in a "	father" variable
        $father= mysqli_real_escape_string($con,$_POST['Father']);
+      $sred=$_POST['sredbal'];
         // Creating an insert query using SQL syntax and
         // storing it in a variable.
         $sql_insert = 
-        "INSERT INTO `ankety`(`Ankety_fam`,`Ankety_name1`,`Ankety_otch`,`date_birth`, `reg_id `,`document`,`nationality_id`,`country_id`,`gender_id`,`vid_milit_serv_id`,`document_mil`,`tel_home`,`tel_mob`,`uch_zav_id`,`document_educ`,`trud_st`,`document_trud`,`language_id`,`LIVING`,`vip_letter`,`mother`,`father`)
-            VALUES ('$fam','$name','$otch','$dob','$id','$doc','$id1','$id2','$id3','$id4','$doc_mil','$tel1','$tel2','$id5','$doc_edc','$q1','$doc_trd','$id6','$q2','$vip','$mother','$father')";
+        "INSERT INTO `ankety`(`Ankety_fam`,`Ankety_name1`,`Ankety_otch`,`date_birth`, `reg_id `,`document`,`nationality_id`,`country_id`,`gender_id`,`vid_milit_serv_id`,`document_mil`,`tel_home`,`tel_mob`,`uch_zav_id`,`document_educ`,`srednbal,`trud_st`,`document_trud`,`language_id`,`LIVING`,`vip_letter`,`mother`,`father`)
+            VALUES ('$fam','$name','$otch','$dob','$id','$doc','$id1','$id2','$id3','$id4','$doc_mil','$tel1','$tel2','$id5','$doc_edc','$sred','$q1','$doc_trd','$id6','$q2','$vip','$mother','$father')";
           
           // The following code attempts to execute the SQL query
           // if the query executes with no errors 
@@ -92,7 +93,6 @@ $sql7 = "SELECT * FROM `languages`";
 <head>
    <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html">
-<link rel="stylesheet" href="style.css"  type="text/css">
  <title>Ввод данных в анкету</title>
 </head>
 <body>
@@ -110,10 +110,10 @@ $sql7 = "SELECT * FROM `languages`";
                 // use a while loop to fetch data 
                 // from the $all_categories variable 
                 // and individually display as an option
-                while ($region = mysqli_fetch_array(
+                while ($regions = mysqli_fetch_array(
                         $all_regions,MYSQLI_ASSOC)):; 
             ?>
-                <option value="<?php echo $region["id_region"];
+                <option value="<?php echo $regions["id_region"];
                     // The value we usually set is the primary key
                 ?>">
                     <?php echo $region["reg_name"];
@@ -241,6 +241,9 @@ $sql7 = "SELECT * FROM `languages`";
         <br>
      <label>Док-нт от уч. заведения:</label>
         <input type="text" name="document_educ" ><br>
+     <label>Средний бал:</label>
+        <input type="number" name="sredbal" min="0" step="0.1">
+     <br>
      <label>Трудовой стаж</label>
        <br>
      <input type="radio" name="q1" value="0"> Нет<br>
