@@ -11,6 +11,7 @@
 <meta http-equiv="Content-Type" content="text/html">
 <title>Кратко о студентах</title></head>
 <body>
+    <h1>Краткие данные о студентах</h1>
      <br />  
            <div class="container" style="width:500px;">  
                 <div class="table-responsive">  
