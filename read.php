@@ -6,6 +6,7 @@
 <title>Подробные данные</title>
 </head>
 <body>
+<h1>Подробные данные о студенте</h1>
 <?php
 require_once 'conn.php';
 $id = $_REQUEST['nk'];
