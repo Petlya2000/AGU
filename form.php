@@ -94,6 +94,7 @@ $sql7 = "SELECT * FROM `languages`";
    <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html">
  <title>Ввод данных в анкету</title>
+<h1>Ввод данных в анкету</h1>
 </head>
 <body>
     <form method="POST">
@@ -126,7 +127,7 @@ $sql7 = "SELECT * FROM `languages`";
             ?>
         </select>
         <br>
-      <label>Док-нт удостоверяющий личность:</label>
+      <label>Документ удостоверяющий личность:</label>
         <input type="text" name="document" required><br>
      <label>Национальность</label>
      <select name="Nationality"><?php 
@@ -212,13 +213,13 @@ $sql7 = "SELECT * FROM `languages`";
             ?>
         </select>
         <br>
-     <label>Док-нт о военной службе:</label>
+     <label>Документ о военной службе:</label>
         <input type="text" name="document_mil" required><br>
-     <label>Дом. телефон:</label>
+     <label>Домашний телефон:</label>
         <input type="text" name="Telhome" ><br>
-     <label>Моб. телефон:</label>
+     <label>Мобильный телефон:</label>
         <input type="text" name="Telmob" ><br>
-     <label>Уч. заведение</label>
+     <label>Учебное заведение</label>
      <select name="Uch_zav"><?php 
                 // use a while loop to fetch data 
                 // from the $all_categories variable 
@@ -239,7 +240,7 @@ $sql7 = "SELECT * FROM `languages`";
             ?>
         </select>
         <br>
-     <label>Док-нт от уч. заведения:</label>
+     <label>Документ от учебного заведения:</label>
         <input type="text" name="document_educ" ><br>
      <label>Средний бал:</label>
         <input type="number" name="sredbal" min="0" step="0.1">
@@ -251,7 +252,7 @@ $sql7 = "SELECT * FROM `languages`";
       <br>
      <label>Данные о трудовом стаже:</label>
         <input type="text" name="document_trud" ><br>
-     <label>Инностр. язык в школах</label>
+     <label>Инностранный язык в школе</label>
         <select name="Language">
             <?php 
                 // use a while loop to fetch data 
@@ -278,7 +279,7 @@ $sql7 = "SELECT * FROM `languages`";
      <input type="radio" name="q2" value="0"> Нет<br>
      <input type="radio" name="q2" value="1"> Да<br>
       <br>
-     <label>Док-нты на льготы(реком-ные письма):</label>
+     <label>Документы на льготы(рекомендательные письма):</label>
         <input type="text" name="vip" ><br>
      <label>Данные о матери (ФИО, номер телефона):</label>
         <input type="text" name="Mother" ><br>
