@@ -32,7 +32,8 @@
                                {  
                           ?>  
                           <tr>  
-                                   <td><?php echo $row["Ankety_id"];?></td>  
+                                   <td><?php echo $row["Ankety_id"];?></td>
+                                <td><?php echo $row["Ankety_name1"];?></td>  
                                <td><?php echo $row["Ankety_fam"];?></td>  
                                <td><?php echo $row["Ankety_otch"]; ?></td>
                                  <td><?php echo $row["reg_name"];?></td>  
@@ -53,6 +54,11 @@
   <input id="submitback" type="submit" value="Добавить запись">
 </form>
     <br/>
+                              <form method='post' action='read.php'><b>
+<input id="Nknig" type='text' name='nk' placeholder="ID студента"><b><b>
+<br>
+<input id='submitread'  type='submit' value='Читать...'><b><b>
+</form>
     <br/>
 </body>
 </html>
