@@ -102,7 +102,7 @@ $sql7 = "SELECT * FROM `languages`";
         <label>Имя студента:</label>
         <input type="text" name="Ankety_name1" required><br>
      <label>Отчество студента:</label>
-        <input type="text" name="Ankety_name1" required><br>
+        <input type="text" name="Ankety_fam" required><br>
      <label>Дата рождения:</label>
       <input type="date" name="dateofbirth" required> <br>
      <label>Регион</label>
@@ -116,7 +116,7 @@ $sql7 = "SELECT * FROM `languages`";
                 <option value="<?php echo $regions["id_region"];
                     // The value we usually set is the primary key
                 ?>">
-                    <?php echo $region["reg_name"];
+                    <?php echo $regions["reg_name"];
                         // To show the category name to the user
                     ?>
                 </option>
@@ -229,7 +229,7 @@ $sql7 = "SELECT * FROM `languages`";
                 <option value="<?php echo $uch_zaves["uch_zav_id"];
                     // The value we usually set is the primary key
                 ?>">
-                    <?php echo $vid_mili_services["uch_zav_name"];
+                    <?php echo $uch_zaves["uch_zav_name"];
                         // To show the category name to the user
                     ?>
                 </option>
