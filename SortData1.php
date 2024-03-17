@@ -7,15 +7,6 @@ if (!($data)) {
 else {
    $sql_select="SELECT * FROM ankety INNER JOIN spr_region ON ankety.reg_id = spr_region.id_region INNER JOIN gender ON ankety.gender_id = gender.gend_id INNER JOIN nationality ON ankety.nationality_id = nationality.nation_id WHERE ankety.date_birth > '$data'ORDER BY ankety.Ankety_id ASC;";
 $result = mysqli_query($conn,$sql_select);
-$row = mysqli_fetch_array($result);
-if(mysqli_num_rows($result)==0){
-  echo("Таких книг нет");
-  else {
-  do 
-  {
-printf($row['id']); printf("<br/>");printf($row['author']); printf("<br/>"); printf($row['title']);printf("<br/>"); printf($row['text']); }
-}
-  while($row = mysqli_fetch_array($result));
 }
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
