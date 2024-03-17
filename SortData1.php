@@ -1,24 +1,27 @@
-<?php
-require_once 'connect.php';
-$data = $_REQUEST['nk'];
-if (!($data)) {
-  echo("Введите автора книги");
-}
-else {
-   $sql_select="SELECT * FROM ankety INNER JOIN spr_region ON ankety.reg_id = spr_region.id_region INNER JOIN gender ON ankety.gender_id = gender.gend_id INNER JOIN nationality ON ankety.nationality_id = nationality.nation_id WHERE ankety.date_birth > '$data'ORDER BY ankety.Ankety_id ASC;";
-$result = mysqli_query($conn,$sql_select);
-}
-?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html">
-<title>Поиск по Дате</title>
+<title>Подробные данные</title>
 </head>
 <body>
-    <h1>Сортировка по дате</h1>
-    <br />  
+<h1>Подробные данные о студенте</h1>
+<?php
+require_once 'conn.php';
+$data = $_REQUEST['nk'];
+if (!($data)) {
+  echo("Введите необходимую дату");
+}
+else {
+$sql_select = "SELECT * FROM ankety INNER JOIN spr_region ON ankety.reg_id = spr_region.id_region INNER JOIN gender ON ankety.gender_id = gender.gend_id 
+INNER JOIN languages ON ankety.language_id = languages.language_id INNER JOIN nationality ON ankety.nationality_id = nationality.nation_id
+INNER JOIN countries ON ankety.country_id = countries.country_id
+INNER JOIN uch_zav ON ankety.uch_zav_id = uch_zav.uch_zav_id INNER JOIN vid_mili_serv ON ankety.vid_milit_serv_id = vid_mili_serv.vid_milit_serv_id WHERE Ankety_id='$id'";
+$result = mysqli_query($con,$sql_select);
+$row = mysqli_fetch_array($result);
+if($row) {
+  <br />  
            <div class="container" style="width:500px;">  
                 <div class="table-responsive">  
                      <table class="table table-striped">  
@@ -31,15 +34,8 @@ $result = mysqli_query($conn,$sql_select);
                               <th> Дата рождения</th>
                               <th> Пол</th>
                               <th> Национальность</th>
-                           </tr>  
-                          <?php  
-                          if(mysqli_num_rows($result) = 0)  
-                          {  echo("Таких записей нет");}
-                          else {
-                               while($row = mysqli_fetch_array($result))  
-                               {  
-                          ?>  
-                          <tr>  
+                           </tr> 
+    <tr>  
                                    <td><?php echo $row["Ankety_id"];?></td>
                                 <td><?php echo $row["Ankety_name1"];?></td>  
                                <td><?php echo $row["Ankety_fam"];?></td>  
