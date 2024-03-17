@@ -3,19 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html">
-<title>Подробные данные</title>
+<title>Сортировка по дате</title>
 </head>
 <body>
-<h1>Подробные данные о студенте</h1>
+<h1>Сортировка по дате</h1>
 <?php
-require_once 'conn.php';
+$data = $_REQUEST['nk'];
+if (!($data)) {
+  echo("Введите необходимую дату");
+}
+else
+{
 $sql_select ="SELECT * FROM ankety INNER JOIN spr_region ON ankety.reg_id = spr_region.id_region INNER JOIN gender ON ankety.gender_id = gender.gend_id 
 INNER JOIN languages ON ankety.language_id = languages.language_id INNER JOIN nationality ON ankety.nationality_id = nationality.nation_id
 INNER JOIN countries ON ankety.country_id = countries.country_id
 INNER JOIN uch_zav ON ankety.uch_zav_id = uch_zav.uch_zav_id INNER JOIN vid_mili_serv ON ankety.vid_milit_serv_id = vid_mili_serv.vid_milit_serv_id WHERE ankety.date_birth>'2000.01.05';";
   $result = mysqli_query($con,$sql_select);
-$row = mysqli_fetch_array($result);
-if($row) {
+?>
   <br />  
            <div class="container" style="width:500px;">  
                 <div class="table-responsive">  
@@ -30,6 +34,11 @@ if($row) {
                               <th> Пол</th>
                               <th> Национальность</th>
                            </tr> 
+                       <?php
+        if(mysqli_num_rows($result)>0){
+            while($row=mysqli_fetch_array($result))
+            {
+              ?>
     <tr>  
                                    <td><?php echo $row["Ankety_id"];?></td>
                                 <td><?php echo $row["Ankety_name1"];?></td>  
@@ -42,7 +51,7 @@ if($row) {
                           </tr>  
                           <?php  
                                }  
-                           
+        }
                           ?>  
                      </table>  
                 </div>  
