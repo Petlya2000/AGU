@@ -61,5 +61,9 @@
 <input id='submitread'  type='submit' value='Читать...'><b><b>
 </form>
     <br/>
+    <form method='post' action='delete.php'><br/>
+<input id="Nknig" type='text' name='nk' placeholder="Номер студента"><b><b>
+<br>
+<input id='submitdelete'  type='submit' value='Удалить'><b><b>
 </body>
 </html>
