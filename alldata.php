@@ -61,6 +61,12 @@
 <input id='submitread'  type='submit' value='Читать...'><b><b>
 </form>
     <br/>
+    form method='post' action='SortData1.php'><b>
+<input id="Nknig" type='date' name='nk'><b><b>
+<br>
+<input id='submitread'  type='submit' value='Поиск по дате (>)'><b><b>
+</form>
+    <br/>
     <form method='post' action='delete.php'><br/>
 <input id="Nknig" type='text' name='nk' placeholder="Номер студента"><b><b>
 <br>
