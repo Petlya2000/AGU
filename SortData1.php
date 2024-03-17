@@ -8,6 +8,7 @@
 <body>
 <h1>Сортировка по дате</h1>
 <?php
+require_once 'conn.php';
 $data = $_REQUEST['nk'];
 if (!($data)) {
   echo("Введите необходимую дату");
@@ -35,7 +36,9 @@ INNER JOIN uch_zav ON ankety.uch_zav_id = uch_zav.uch_zav_id INNER JOIN vid_mili
                               <th> Национальность</th>
                            </tr> 
                        <?php
-        if(mysqli_num_rows($result)>0){
+        if(mysqli_num_rows($result)=0){
+          echo ("Таких записей нейт");}
+          else {
             while($row=mysqli_fetch_array($result))
             {
               ?>
@@ -52,6 +55,7 @@ INNER JOIN uch_zav ON ankety.uch_zav_id = uch_zav.uch_zav_id INNER JOIN vid_mili
                           <?php  
                                }  
         }
+}
                           ?>  
                      </table>  
                 </div>  
