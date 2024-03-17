@@ -13,7 +13,7 @@ if (!($id)) {
   echo("Введите номер студента");
 }
 else {
-$sql_select = "DELETE * FROM agu_priem.ankety WHERE id='$id'";
+$sql_select = "DELETE FROM ankety WHERE Ankety_id='$id';";
 $result = mysqli_query($con,$sql_select);
 if (($result)) {
   echo("Запись $id удалена"):
