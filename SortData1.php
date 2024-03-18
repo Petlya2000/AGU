@@ -37,9 +37,8 @@ ORDER BY ankety.Ankety_id ASC;";
                               <th> Национальность</th>
                            </tr> 
                        <?php
-        if(mysqli_num_rows($result)=0){
-          echo ("Таких записей нейт");}
-          else {
+        if(mysqli_num_rows($result)>0){
+         
             while($row=mysqli_fetch_array($result))
             {
               ?>
@@ -56,6 +55,7 @@ ORDER BY ankety.Ankety_id ASC;";
                           <?php  
                                }  
         }
+  else { echo ("Такой записи в базе нет"); }
 }
                           ?>  
                      </table>  
