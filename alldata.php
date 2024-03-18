@@ -61,11 +61,17 @@
 <input id='submitread'  type='submit' value='Читать...'><b><b>
 </form>
     <br/>
-                                  <form method='post' action='SortNaion.php'><b>
+                                  <form method='post' action='SortNation.php'><b>
 <input id="Nknig" type='text' name='nk' placeholder="национальность студента"><b><b>
 <br>
 <input id='submitnation'  type='submit' value='Читать...'><b><b>
 </form>
+    <form method='post' action='SortSredbal.php'><b>
+<input id="Nknig" type='number' name='nk' min="0" step="0.1" placeholder="средний бад студента"><b><b>
+<br>
+<input id='submitnation'  type='submit' value=Поиск по сред балу(>)'><b><b>
+</form>
+    <br/>
     <br/>
     <form method='post' action='SortData1.php'><b>
 <input id="Nknig" type='date' name='nk'><b><b>
