@@ -21,6 +21,8 @@ INNER JOIN countries ON ankety.country_id = countries.country_id
 INNER JOIN uch_zav ON ankety.uch_zav_id = uch_zav.uch_zav_id INNER JOIN vid_mili_serv ON ankety.vid_milit_serv_id = vid_mili_serv.vid_milit_serv_id WHERE ankety.date_birth>'$data' 
 ORDER BY ankety.Ankety_id ASC;";
   $result = mysqli_query($con,$sql_select);
+          if(mysqli_num_rows($result)>0){
+
 ?>
   <br />  
            <div class="container" style="width:500px;">  
@@ -37,7 +39,6 @@ ORDER BY ankety.Ankety_id ASC;";
                               <th> Национальность</th>
                            </tr> 
                        <?php
-        if(mysqli_num_rows($result)>0){
          
             while($row=mysqli_fetch_array($result))
             {
