@@ -64,7 +64,7 @@
                                   <form method='post' action='SortNation.php'><b>
 <input id="Nknig" type='text' name='nk' placeholder="национальность студента"><b><b>
 <br>
-<input id='submitnation'  type='submit' value='Читать...'><b><b>
+<input id='submitnation'  type='submit' value='Поиск по национальности'><b><b>
 </form>
     <form method='post' action='SortSredbal.php'><b>
 <input id="Nknig" type='number' name='nk' min="0" step="0.1" placeholder="средний бад студента"><b><b>
