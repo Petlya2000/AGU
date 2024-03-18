@@ -78,6 +78,12 @@
 <br>
 <input id='submitdata'  type='submit' value='Поиск по дате (>)'><b><b>
 </form>
+     <br/>
+    <form method='post' action='SortRegion.php'><b>
+<input id="Nknig" type='text' name='nk'><b><b>
+<br>
+<input id='submitdata'  type='submit' value='Поиск по региону'><b><b>
+</form>
     <br/>
     <form method='post' action='delete.php'><br/>
 <input id="Nknig" type='text' name='nk' placeholder="Номер студента"><b><b>
