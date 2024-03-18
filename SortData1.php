@@ -18,7 +18,8 @@ else
 $sql_select ="SELECT * FROM ankety INNER JOIN spr_region ON ankety.reg_id = spr_region.id_region INNER JOIN gender ON ankety.gender_id = gender.gend_id 
 INNER JOIN languages ON ankety.language_id = languages.language_id INNER JOIN nationality ON ankety.nationality_id = nationality.nation_id
 INNER JOIN countries ON ankety.country_id = countries.country_id
-INNER JOIN uch_zav ON ankety.uch_zav_id = uch_zav.uch_zav_id INNER JOIN vid_mili_serv ON ankety.vid_milit_serv_id = vid_mili_serv.vid_milit_serv_id WHERE ankety.date_birth>'2000.01.05';";
+INNER JOIN uch_zav ON ankety.uch_zav_id = uch_zav.uch_zav_id INNER JOIN vid_mili_serv ON ankety.vid_milit_serv_id = vid_mili_serv.vid_milit_serv_id WHERE ankety.date_birth>'$data' 
+ORDER BY ankety.Ankety_id ASC;";
   $result = mysqli_query($con,$sql_select);
 ?>
   <br />  
