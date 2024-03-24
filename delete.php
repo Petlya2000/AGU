@@ -10,7 +10,7 @@
 require_once 'conn.php';
 $id = $_REQUEST['nk'];
 if (!($id)) {
-  echo("Введите номер студента");
+  echo("Введите номер абитуриента");
 }
 else {
 $sql_select = "DELETE FROM ankety WHERE Ankety_id='$id';";
