@@ -98,11 +98,11 @@ $sql7 = "SELECT * FROM `languages`";
 <body>
  <h1>Ввод данных в анкету</h1>
     <form method="POST">
-     <label>Фамилия студента:</label>
+     <label>Фамилия абитуриента:</label>
         <input type="text" name="Ankety_fam" required><br>
-        <label>Имя студента:</label>
+        <label>Имя абитуриента:</label>
         <input type="text" name="Ankety_name1" required><br>
-     <label>Отчество студента:</label>
+     <label>Отчество абитуриента:</label>
         <input type="text" name="Ankety_otch" required><br>
      <label>Дата рождения:</label>
       <input type="date" name="dateofbirth" required> <br>
