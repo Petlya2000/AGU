@@ -289,7 +289,7 @@ $sql7 = "SELECT * FROM `languages`";
         <input type="submit" value="submit" name="submit">
     </form>
     <br>
- <form method="post" action="alldata.php">
+ <form method="post" action="alldata1.php">
 <input id="submitover" type="submit" value="Показать всех"><b/>
 </form>
 </body>
