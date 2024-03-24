@@ -64,7 +64,7 @@ ORDER BY ankety.Ankety_id ASC;";
            </div>  
            <br /> 
 </body>
-<form method='post' action='alldata.php'><b/>
+<form method='post' action='alldata1.php'><b/>
 <input id='submitread'  type='submit' value="Вернуться на главную"><b/><b/>
 </form>
 <form method="post" action="form.php">
