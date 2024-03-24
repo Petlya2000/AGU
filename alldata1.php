@@ -13,7 +13,7 @@ $result = mysqli_query($con, $sql_select);
 <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html">
-    <title>Кратко о студентах</title>
+    <title>Кратко об абитуриентах</title>
     <style>
         .fixed-form {
             position: fixed;
