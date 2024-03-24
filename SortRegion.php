@@ -31,8 +31,8 @@ ORDER BY ankety.Ankety_id ASC;";
                      <table class="table table-striped">  
                           <tr>  
                               <th> ID</th>
-                              <th> Имя</th>  
                               <th> Фамилия</th>  
+                              <th> Имя</th>  
                               <th> Отчество</th>
                               <th> Регион</th>
                               <th> Дата рождения</th>
@@ -46,8 +46,8 @@ ORDER BY ankety.Ankety_id ASC;";
               ?>
     <tr>  
                                    <td><?php echo $row["Ankety_id"];?></td>
+                                  <td><?php echo $row["Ankety_fam"];?></td>  
                                 <td><?php echo $row["Ankety_name1"];?></td>  
-                               <td><?php echo $row["Ankety_fam"];?></td>  
                                <td><?php echo $row["Ankety_otch"]; ?></td>
                                  <td><?php echo $row["reg_name"];?></td>  
                                <td><?php echo $row["date_birth"];?></td>  
@@ -65,7 +65,7 @@ ORDER BY ankety.Ankety_id ASC;";
            </div>  
            <br /> 
 </body>
-<form method='post' action='alldata.php'><b/>
+<form method='post' action='alldata1.php'><b/>
 <input id='submitread'  type='submit' value="Вернуться на главную"><b/><b/>
 </form>
 <form method="post" action="form.php">
