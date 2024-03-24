@@ -32,11 +32,11 @@ if($row) { printf("<p><b>Номер абитуриента: ".$row['Ankety_id'].
 else { echo ("Такой записи в базе нет"); }
 }
 ?>
-<form method='post' action='alldata.php'><b/>
-<input id='submitread'  type='submit' value="Вернуться к поиску"><b/><b/>
+<form method='post' action='alldata1.php'><b/>
+<input id='submitread'  type='submit' value="На главную"><b/><b/>
 </form>
 <form method="post" action="form.php">
-<input id="submitback" type="submit" value="На главную">
+<input id="submitback" type="submit" value="К форме">
 </form>
 </body>
 </html>
