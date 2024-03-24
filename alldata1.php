@@ -67,16 +67,21 @@ $result = mysqli_query($con, $sql_select);
         <form method="post" action="form.php">
             <input type="submit" value="Добавить запись">
         </form>
+      
         <form method="post" action="read.php">
-            <input type="text" name="nk" placeholder="ID студента">
+            <input type="text" name="nk" placeholder="ID абитуриента">
+            <input type="submit" value="Читать...">
+        </form>
+      <form method="post" action="SortFam.php">
+            <input type="text" name="nk" placeholder="фамилия абитуриента">
             <input type="submit" value="Читать...">
         </form>
         <form method="post" action="SortNation.php">
-            <input type="text" name="nk" placeholder="национальность студента">
+            <input type="text" name="nk" placeholder="национальность абитуриента">
             <input type="submit" value="Поиск по национальности">
         </form>
         <form method="post" action="SortSredbal.php">
-            <input type="number" name="nk" min="0" step="0.1" placeholder="средний бал студента">
+            <input type="number" name="nk" min="0" step="0.1" placeholder="средний бал абитуриента">
             <input type="submit" value="Поиск по среднему балу (>)">
         </form>
         <form method="post" action="SortData1.php">
@@ -88,7 +93,7 @@ $result = mysqli_query($con, $sql_select);
             <input type="submit" value="Поиск по региону">
         </form>
         <form method="post" action="delete.php">
-            <input type="text" name="nk" placeholder="Номер студента">
+            <input type="text" name="nk" placeholder="ID абитуриента">
             <input type="submit" value="Удалить">
         </form>
     </div>
