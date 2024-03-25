@@ -5,6 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html">
 <title>Удалить</title>
 </head>
+  <h1>Удаление записи</h1>
 <body>
 <?php
 require_once 'conn.php';
@@ -16,12 +17,12 @@ else {
 $sql_select = "DELETE FROM ankety WHERE Ankety_id='$id';";
 $result = mysqli_query($con,$sql_select);
 if (($result)) {
-  echo("Запись $id удалена"):
+  echo("Запись $id удалена");
     }
 else { echo ("Запись не удалена"); }
 }
 ?>
-<form method='post' action='alldata.php'><b/>
+<form method='post' action='alldata1.php'><b/>
 <input id='submitread'  type='submit' value="На главную"><b/><b/>
 </form>
 <form method="post" action="form.php">
