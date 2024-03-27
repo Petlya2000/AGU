@@ -77,6 +77,10 @@ $result = mysqli_query($con, $sql_select);
             <input type="text" name="nk" placeholder="фамилия абитуриента">
             <input type="submit" value="Читать...">
         </form>
+      <form method="post" action="SortName.php">
+            <input type="text" name="nk" placeholder="Имя абитуриента">
+            <input type="submit" value="Читать...">
+        </form>
         <form method="post" action="SortNation.php">
             <input type="text" name="nk" placeholder="национальность абитуриента">
             <input type="submit" value="Поиск по национальности">
