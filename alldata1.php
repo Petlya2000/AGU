@@ -74,15 +74,15 @@ $result = mysqli_query($con, $sql_select);
             <input type="submit" value="Читать...">
         </form>
       <form method="post" action="SortFam.php">
-            <input type="text" name="nk" placeholder="фамилия абитуриента">
-            <input type="submit" value="Читать...">
+            <input type="text" name="nk" placeholder="Фамилия абитуриента">
+            <input type="submit" value="Поиск по фамилии">
         </form>
       <form method="post" action="SortName.php">
             <input type="text" name="nk" placeholder="Имя абитуриента">
-            <input type="submit" value="Читать...">
+            <input type="submit" value="Поиск по Имени">
         </form>
         <form method="post" action="SortNation.php">
-            <input type="text" name="nk" placeholder="национальность абитуриента">
+            <input type="text" name="nk" placeholder="Национальность абитуриента">
             <input type="submit" value="Поиск по национальности">
         </form>
         <form method="post" action="SortSredbal.php">
