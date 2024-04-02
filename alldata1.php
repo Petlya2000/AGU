@@ -31,7 +31,7 @@ $result = mysqli_query($con, $sql_select);
     </style>
 </head>
 <body>
-    <h1>Краткие данные об абитуриентах</h1>
+    <h1>Краткие анкетные данные об абитуриентах</h1>
     <div class="container">  
         <table class="table table-striped">
             <tr>  
