@@ -11,7 +11,7 @@
 require_once 'conn.php';
 $name = $_REQUEST['nk'];
 if (!($name)) {
-  echo("Введите имя абитуриента");
+  echo("Введите имя поступающего");
 }
 else
 {
