@@ -11,7 +11,7 @@
 require_once 'conn.php';
 $fam = $_REQUEST['nk'];
 if (!($fam)) {
-  echo("Введите фамилию абитуриента");
+  echo("Введите фамилию поступающего");
 }
 else
 {
