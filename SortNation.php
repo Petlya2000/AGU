@@ -11,7 +11,7 @@
 require_once 'conn.php';
 $nation = $_REQUEST['nk'];
 if (!($nation)) {
-  echo("Введите национальность абитуриента");
+  echo("Введите национальность поступающего");
 }
 else
 {
