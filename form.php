@@ -1,7 +1,9 @@
 <?php
  
     require_once 'conn.php';
-     
+     function check() {
+      return confirm("Потвердить?")
+}
     // mysqli_connect("servername","username","password","database_name")
   
     // Get all the categories from category table
@@ -289,7 +291,7 @@ $sql7 = "SELECT * FROM `languages`";
         <input type="submit" value="submit" name="submit">
     </form>
     <br>
- <form method="post" action="alldata1.php">
+ <form method="post" action="alldata1.php" onsubmit="return check()>
 <input id="submitover" type="submit" value="Показать всех"><b/>
 </form>
 </body>
