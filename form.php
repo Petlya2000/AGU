@@ -1,9 +1,7 @@
 <?php
  
     require_once 'conn.php';
-     function check() {
-      return confirm("Потвердить?")
-}
+     
     // mysqli_connect("servername","username","password","database_name")
   
     // Get all the categories from category table
