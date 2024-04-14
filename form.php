@@ -96,8 +96,8 @@ $sql7 = "SELECT * FROM `languages`";
  <title>Ввод данных в анкету</title>
  <script>
       function check() {
-       echo $fam;
-         var confirmed = confirm("Вы уверены?");
+       
+         var confirmed = confirm(echo $fam;" Вы уверены?");
          return confirmed;
       }
  </script>
