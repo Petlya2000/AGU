@@ -94,10 +94,16 @@ $sql7 = "SELECT * FROM `languages`";
    <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html">
  <title>Ввод данных в анкету</title>
+ <script>
+      function check() {
+         var confirmed = confirm("Вы уверены?");
+         return confirmed;
+      }
+ </script>
 </head>
 <body>
  <h1>Ввод данных в анкету</h1>
-    <form method="POST">
+    <form method="POST" onsubmit="return check()">
      <label>Фамилия абитуриента:</label>
         <input type="text" name="Ankety_fam" required><br>
         <label>Имя абитуриента:</label>
@@ -286,10 +292,10 @@ $sql7 = "SELECT * FROM `languages`";
      <label>Данные об отце (ФИО, номер телефона):</label>
         <input type="text" name="Father" ><br>
       <br>
-        <input type="submit" value="submit" name="submit">
+        <input type="submit" value="submit" name="submit" onclick="return check()">
     </form>
     <br>
- <form method="post" action="alldata1.php" onsubmit="return check()">
+ <form method="post" action="alldata1.php">
 <input id="submitover" type="submit" value="Показать всех"><b/>
 </form>
 </body>
