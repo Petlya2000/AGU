@@ -96,8 +96,7 @@ $sql7 = "SELECT * FROM `languages`";
  <title>Ввод данных в анкету</title>
  <script>
       function check() {
-       
-         var confirmed = confirm(echo $fam;" Вы уверены?");
+         var confirmed = confirm("Вы уверены?");
          return confirmed;
       }
  </script>
@@ -268,7 +267,7 @@ $sql7 = "SELECT * FROM `languages`";
                 while ($languages = mysqli_fetch_array(
                         $all_languages,MYSQLI_ASSOC)):; 
             ?>
-                <option value="<?php echo $languages["language_id"];
+                <option value="<?php echo $languages["language_id "];
                     // The value we usually set is the primary key
                 ?>">
                     <?php echo $languages["languages_name"];
