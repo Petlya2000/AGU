@@ -32,6 +32,8 @@ $sql7 = "SELECT * FROM `languages`";
             $name = $row['Ankety_name1'];
             $otch = $row['Ankety_otch'];
             $dob = $row['date_birth'];
+            $id= $row['reg_id']
+            $reg_name=$row['reg_name']
             // Заполните остальные поля аналогичным образом
         }
     }
@@ -95,10 +97,8 @@ $sql7 = "SELECT * FROM `languages`";
                 while ($regions = mysqli_fetch_array(
                         $all_regions,MYSQLI_ASSOC)):; 
             ?>
-                <option value="<?php echo $regions["id_region"];
-                    // The value we usually set is the primary key
-                ?>">
-                    <?php echo $regions["reg_name"];
+                <option value="<?php echo isset($id) ? $id : ''; ?>">
+                    <?php echo $reg_name;
                         // To show the category name to the user
                     ?>
                 </option>
