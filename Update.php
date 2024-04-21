@@ -33,7 +33,7 @@ $sql7 = "SELECT * FROM `languages`";
             $otch = $row['Ankety_otch'];
             $dob = $row['date_birth'];
             $id= $row['reg_id'];
-        
+            $name=$row['spr_region.reg_name']
             // Заполните остальные поля аналогичным образом
         }
     }
@@ -127,7 +127,7 @@ $sql7 = "SELECT * FROM `languages`";
      <label>Дата рождения:</label>
       <input type="date" name="dateofbirth" value="<?php echo isset($dob) ? $dob : ''; ?>"required> <br>
         <label>Регион</label>
-        <input type="text" name="Region" value="<?php echo isset($id) ? $id : ''; ?>"required><br>
+        <input type="text" name="Region" value="<?php echo isset($id) ? $name : ''; ?>"required><br>
         <br>
         <input type="submit" value="Обновить" name="update">
     </form>
