@@ -21,6 +21,7 @@ $sql = "SELECT * FROM `spr_region`";
             $otch = $row['Ankety_otch'];
             $dob = $row['date_birth'];
             $id= $row['reg_id'];
+            $reg_name=$row['reg_name'];
             // Заполните остальные поля аналогичным образом
         }
     }
