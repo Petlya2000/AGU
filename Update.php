@@ -90,17 +90,15 @@ $sql7 = "SELECT * FROM `languages`";
      <label>Дата рождения:</label>
       <input type="date" name="dateofbirth" value="<?php echo isset($dob) ? $dob : ''; ?>"required> <br>
         <label>Регион</label>
-     <select name="Region"><?php 
-                echo '<select name="Region" >';
-
-while ($regions = mysqli_fetch_array(
-                        $all_regions,MYSQLI_ASSOC)):; {
-
-echo ' <option value="'.$regions['reg_id'].'">'.$regions['reg_name'].'</option>';
-
+     <select name="Region">
+<?php
+////////---------
+while($regions = mysql_fetch_assoc($region)){
+echo '<option value="'.$regions["id_region"].'">'.$regions["reg_name"].'</option>';
 }
-echo '</select>';
-         ?>
+print_r($result);
+?>
+</select>
         <br>
         <input type="submit" value="Обновить" name="update">
     </form>
