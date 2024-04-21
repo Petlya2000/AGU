@@ -32,8 +32,7 @@ $sql7 = "SELECT * FROM `languages`";
             $name = $row['Ankety_name1'];
             $otch = $row['Ankety_otch'];
             $dob = $row['date_birth'];
-            $id= $row['reg_id']
-            $reg_name=$row['reg_name']
+            $id= $row['reg_id'];
             // Заполните остальные поля аналогичным образом
         }
     }
@@ -90,15 +89,13 @@ $sql7 = "SELECT * FROM `languages`";
      <label>Дата рождения:</label>
       <input type="date" name="dateofbirth" value="<?php echo isset($dob) ? $dob : ''; ?>"required> <br>
         <label>Регион</label>
-     <select name="Region">
-<?php
-////////---------
-while($regions = mysql_fetch_assoc($region)){
-echo '<option value="'.$regions["id_region"].'">'.$regions["reg_name"].'</option>';
-}
-print_r($result);
-?>
-</select>
+    <select name="Region">
+    <?php 
+    foreach ($regions as $region){
+        echo '<option value="', $region['reg_id'], '">', $region['reg_name'], '</option>';
+    }
+    ?>
+</select><br /><br />
         <br>
         <input type="submit" value="Обновить" name="update">
     </form>
