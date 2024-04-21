@@ -83,7 +83,7 @@ $sql = "SELECT * FROM `spr_region`";
     while ($regions = mysqli_fetch_array(
                         $all_regions,MYSQLI_ASSOC)):; 
             ?>
-                <option value="<?php echo $id;
+                <option value="<?php echo  isset($id) ? $id : '';
                     // The value we usually set is the primary key
                 ?>">
                     <?php echo $regions["reg_name"];
