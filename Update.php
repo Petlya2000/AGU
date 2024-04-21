@@ -91,22 +91,16 @@ $sql7 = "SELECT * FROM `languages`";
       <input type="date" name="dateofbirth" value="<?php echo isset($dob) ? $dob : ''; ?>"required> <br>
         <label>Регион</label>
      <select name="Region"><?php 
-                // use a while loop to fetch data 
-                // from the $all_categories variable 
-                // and individually display as an option
-                while ($regions = mysqli_fetch_array(
-                        $all_regions,MYSQLI_ASSOC)):; 
-            ?>
-                <option value="<?php echo isset($id) ? $id : ''; ?>">
-                    <?php echo $reg_name;
-                        // To show the category name to the user
-                    ?>
-                </option>
-            <?php 
-                endwhile; 
-                // While loop must be terminated
-            ?>
-        </select>
+                echo '<select name="Region" >';
+
+while ($regions = mysqli_fetch_array(
+                        $all_regions,MYSQLI_ASSOC)):; {
+
+echo ' <option value="'.$regions['reg_id'].'">'.$regions['reg_name'].'</option>';
+
+}
+echo '</select>';
+         ?>
         <br>
         <input type="submit" value="Обновить" name="update">
     </form>
