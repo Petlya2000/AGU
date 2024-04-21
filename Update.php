@@ -1,21 +1,7 @@
 <?php
     require_once 'conn.php';
-    $sql = "SELECT * FROM `spr_region`";
-    $all_regions = mysqli_query($con,$sql);
-    $sql1 = "SELECT * FROM `nationality`";
-    $all_nationalities = mysqli_query($con,$sql1);
-   $sql2 = "SELECT * FROM `countries`";
-    $all_countries = mysqli_query($con,$sql2);
-     $sql3 = "SELECT * FROM `gender`";
-    $all_genders = mysqli_query($con,$sql3);
-$sql4 = "SELECT * FROM `vid_mili_serv`";
-    $all_vid_mili_services = mysqli_query($con,$sql4);
- $sql5 = "SELECT * FROM `uch_zav`";
-    $all_uch_zaves = mysqli_query($con,$sql5);
-$sql6 = "SELECT * FROM `languages`";
-    $all_languages = mysqli_query($con,$sql6);
-$sql7 = "SELECT * FROM `languages`";
-    $all_languages = mysqli_query($con,$sql6);
+    
+   
     // Проверяем, была ли отправлена форма
     if(isset($_POST['submit'])) {
         // Получаем ID записи из формы
@@ -25,7 +11,8 @@ $sql7 = "SELECT * FROM `languages`";
         $sql_select = "SELECT * FROM `ankety` WHERE `Ankety_id`='$ankety_id'";
         $result = mysqli_query($con, $sql_select);
         $row = mysqli_fetch_assoc($result);
-
+$sql = "SELECT * FROM `spr_region`";
+    $all_regions = mysqli_query($con,$sql);
         // Если запись найдена, заполняем остальные поля формы
         if($row) {
             $fam = $row['Ankety_fam'];
@@ -33,7 +20,6 @@ $sql7 = "SELECT * FROM `languages`";
             $otch = $row['Ankety_otch'];
             $dob = $row['date_birth'];
             $id= $row['reg_id'];
-            $name=$row['spr_region.reg_name']
             // Заполните остальные поля аналогичным образом
         }
     }
@@ -126,8 +112,26 @@ $sql7 = "SELECT * FROM `languages`";
         <input type="text" name="Ankety_otch" value="<?php echo isset($otch) ? $otch : ''; ?>"required><br>
      <label>Дата рождения:</label>
       <input type="date" name="dateofbirth" value="<?php echo isset($dob) ? $dob : ''; ?>"required> <br>
-        <label>Регион</label>
-        <input type="text" name="Region" value="<?php echo isset($id) ? $name : ''; ?>"required><br>
+       <select name="Region"><?php 
+                // use a while loop to fetch data 
+                // from the $all_categories variable 
+                // and individually display as an option
+                while ($regions = mysqli_fetch_array(
+                        $all_regions,MYSQLI_ASSOC)):; 
+            ?>
+                <option value="<?php echo $id;
+                    // The value we usually set is the primary key
+                ?>">
+                    <?php echo $regions["reg_name"];
+                        // To show the category name to the user
+                    ?>
+                </option>
+            <?php 
+                endwhile; 
+                // While loop must be terminated
+            ?>
+        </select>
+        <br>
         <br>
         <input type="submit" value="Обновить" name="update">
     </form>
