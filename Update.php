@@ -13,8 +13,7 @@
         $row = mysqli_fetch_assoc($result);
 $sql = "SELECT * FROM `spr_region`";
     $all_regions = mysqli_query($con,$sql);
-        $regions = mysqli_fetch_array(
-                        $all_regions,MYSQLI_ASSOC);
+       
         // Если запись найдена, заполняем остальные поля формы
         if($row) {
             $fam = $row['Ankety_fam'];
@@ -22,7 +21,6 @@ $sql = "SELECT * FROM `spr_region`";
             $otch = $row['Ankety_otch'];
             $dob = $row['date_birth'];
             $id= $row['reg_id'];
-            $reg_name = $regions['reg_name']
             // Заполните остальные поля аналогичным образом
         }
     }
@@ -125,7 +123,7 @@ $sql = "SELECT * FROM `spr_region`";
                 <option value="<?php echo $id;
                     // The value we usually set is the primary key
                 ?>">
-                    <?php echo $reg_name;
+                    <?php echo $regions["reg_name"];
                         // To show the category name to the user
                     ?>
                 </option>
