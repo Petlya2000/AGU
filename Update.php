@@ -114,25 +114,11 @@ $sql = "SELECT * FROM `spr_region`";
         <input type="text" name="Ankety_otch" value="<?php echo isset($otch) ? $otch : ''; ?>"required><br>
      <label>Дата рождения:</label>
       <input type="date" name="dateofbirth" value="<?php echo isset($dob) ? $dob : ''; ?>"required> <br>
-       <select name="Region"><?php 
-                // use a while loop to fetch data 
-                // from the $all_categories variable 
-                // and individually display as an option
-                while ($regions = mysqli_fetch_array(
-                        $all_regions,MYSQLI_ASSOC)):; 
-            ?>
-                <option value="<?php echo $id;
-                    // The value we usually set is the primary key
-                ?>">
-                    <?php echo $regions["reg_name"];
-                        // To show the category name to the user
-                    ?>
-                </option>
-            <?php 
-                endwhile; 
-                // While loop must be terminated
-            ?>
-        </select>
+      <select name='Region'>
+    <?php while($regions = mysqli_fetch_array($all_regions)):?>
+    <option value="<?=$id?>"><?=$region['reg_name']</option>
+    <?php endwhile?>
+</select>
         <br>
         <br>
         <input type="submit" value="Обновить" name="update">
