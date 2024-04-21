@@ -27,14 +27,13 @@ $sql7 = "SELECT * FROM `languages`";
         $row = mysqli_fetch_assoc($result);
 
         // Если запись найдена, заполняем остальные поля формы
-        if($row) {while ($regions = mysqli_fetch_array(
-                        $all_regions,MYSQLI_ASSOC)){
+        if($row) {
             $fam = $row['Ankety_fam'];
             $name = $row['Ankety_name1'];
             $otch = $row['Ankety_otch'];
             $dob = $row['date_birth'];
             $id= $row['reg_id'];
-        }
+        
             // Заполните остальные поля аналогичным образом
         }
     }
