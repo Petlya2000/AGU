@@ -79,9 +79,21 @@ $sql = "SELECT * FROM `spr_region`";
      <label>Дата рождения:</label>
       <input type="date" name="dateofbirth" value="<?php echo isset($dob) ? $dob : ''; ?>"required> <br>
       <select name="Region">
-    <?php while($regions = mysqli_fetch_array($all_regions)):?>
-    <option value="<?=$id?>"><?=$region['reg_name']</option>
-    <?php endwhile?>
+    <?php 
+    while ($regions = mysqli_fetch_array(
+                        $all_regions,MYSQLI_ASSOC)):; 
+            ?>
+                <option value="<?php echo $id;
+                    // The value we usually set is the primary key
+                ?>">
+                    <?php echo $regions["reg_name"];
+                        // To show the category name to the user
+                    ?>
+                </option>
+            <?php 
+                endwhile; 
+                // While loop must be terminated
+            ?>
 </select>
         <br>
         <br>
