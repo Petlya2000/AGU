@@ -46,12 +46,13 @@
        $dob = date('Y-m-d', strtotime(($_POST['dateofbirth'])));
             // Store the trud_st in a "q1" variable
         $q1=$_POST['q1'];
+                    $id = mysqli_real_escape_string($con,$_POST['Region']); 
          $sred=$_POST['sredbal'];
         // Store the reg_id in a "id" variable
         $id = mysqli_real_escape_string($con,$_POST['Region']); 
         
         // Запрос на обновление данных в базе данных
-        $sql_update = "UPDATE `ankety` SET `Ankety_fam`='$fam', `Ankety_name1`='$name', `Ankety_otch`='$otch', `date_birth`='$dob',`trud_st`='$q1',`srednbal`='$sred'
+        $sql_update = "UPDATE `ankety` SET `Ankety_fam`='$fam', `Ankety_name1`='$name', `Ankety_otch`='$otch', `date_birth`='$dob',`trud_st`='$q1',`reg_id`='$id',`srednbal`='$sred'
  WHERE `Ankety_id`='$ankety_id'";
         if(mysqli_query($con, $sql_update)) {
             echo '<script>alert("Data updated successfully")</script>';
