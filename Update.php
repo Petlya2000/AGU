@@ -74,13 +74,23 @@ $sql7 = "SELECT * FROM `languages`";
        $dob = date('Y-m-d', strtotime(($_POST['dateofbirth'])));
         $id = mysqli_real_escape_string($con,$_POST['Region']); 
        $doc = mysqli_real_escape_string($con,$_POST['document']);
+	        $id1 = mysqli_real_escape_string($con,$_POST['Nationality']); 
+		 $id2 = mysqli_real_escape_string($con,$_POST['Country']);
+        $id3 = mysqli_real_escape_string($con,$_POST['Gender']);
+        $id4 = mysqli_real_escape_string($con,$_POST['Milit_serve']);
+       $doc_mil = mysqli_real_escape_string($con,$_POST['document_mil']);
+       $tel1 = mysqli_real_escape_string($con,$_POST['Telhome']);
+       $tel2 = mysqli_real_escape_string($con,$_POST['Telmob']);
+        $id5 = mysqli_real_escape_string($con,$_POST['Uch_zav']);
+       $doc_edc = mysqli_real_escape_string($con,$_POST['document_educ']);
 			 $q1=$_POST['q1'];
       $sred=$_POST['sredbal'];
         
         // Запрос на обновление данных в базе данных
-        $sql_update = "UPDATE `ankety` SET `Ankety_fam`='$fam', `Ankety_name1`='$name', `Ankety_otch`='$otch', `date_birth`='$dob',`trud_st`='$q1',`reg_id`='$id',`document`='$doc',`trud_st`='$q1',`srednbal`='$sred'
+        $sql_update = "UPDATE `ankety` SET `Ankety_fam`='$fam', `Ankety_name1`='$name', `Ankety_otch`='$otch', `date_birth`='$dob',`trud_st`='$q1',`reg_id`='$id',`document`='$doc',
+`nationality_id`='$id1',`country_id`='$id2',`gender_id`='$id3',`vid_milit_serv_id`='$id3',`document_mil`='$doc_mil',`tel_home`='$tel1',`tel_mob`='$tel2',
+`trud_st`='$q1',`srednbal`='$sred'
  WHERE `Ankety_id`='$ankety_id'";
-  
         if(mysqli_query($con, $sql_update)) {
             echo '<script>alert("Data updated successfully")</script>';
         } else {
