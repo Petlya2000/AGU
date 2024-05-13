@@ -48,6 +48,15 @@ $sql7 = "SELECT * FROM `languages`";
             $dob = $row['date_birth'];
             $id= $row['reg_id'];
             $doc = $row['document'];
+		$id1= $row['nationality_id'];
+		$id2= $row['country_id'];
+		$id3= $row['gender_id'];
+		$id4= $row['vid_milit_serv_id'];
+		$doc_mil=$row['document_mil'];
+		$tel1=$row['tel_home'];
+		$tel2=$row['tel_mob'];
+		$id5=$row[`uch_zav_id`];
+		$doc_edc=$row[`document_educ`];
             $q1=$row['trud_st'];
             $sred=$row['srednbal'];
 			// $id=$row['reg_id'];
@@ -59,19 +68,12 @@ $sql7 = "SELECT * FROM `languages`";
     // Проверяем, была ли отправлена форма обновления данных
     if(isset($_POST['update'])) {
 		if(isset($_POST['q1'])){
-      // Store the Ankety_fam in a "fam" variable
        $fam = mysqli_real_escape_string($con,$_POST['Ankety_fam']);
-        // Store the Ankety_name1 in a "name" variable
         $name = mysqli_real_escape_string($con,$_POST['Ankety_name1']);
-         // Store the Ankety_otch in a "otch" variable
         $otch = mysqli_real_escape_string($con,$_POST['Ankety_otch']);
-        // Store the date_birth in a "dob" variable
        $dob = date('Y-m-d', strtotime(($_POST['dateofbirth'])));
-        // Store the reg_id in a "id" variable
         $id = mysqli_real_escape_string($con,$_POST['Region']); 
-        // Store the document in a "doc" variable
        $doc = mysqli_real_escape_string($con,$_POST['document']);
-              // Store the nationality_id in a "id1" variable
 			 $q1=$_POST['q1'];
       $sred=$_POST['sredbal'];
         
@@ -93,6 +95,12 @@ $sql7 = "SELECT * FROM `languages`";
 <head>
     <meta charset="UTF-8">
     <title>Update Record</title>
+	<script>
+      function check() {
+         var confirmed = confirm("Вы уверены?");
+         return confirmed;
+      }
+ </script>
 </head>
 <body>
     <h1>Update Record</h1>
@@ -138,7 +146,80 @@ $sql7 = "SELECT * FROM `languages`";
         <br>
       <label>Документ удостоверяющий личность:</label>
         <input type="text" name="document" value="<?php echo isset($doc) ? $doc : ''; ?>" required><br>
+	    <label>Национальность</label>
+     <select name="Nationality"><?php 
+                while ($nationalities = mysqli_fetch_array(
+                        $all_nationalities,MYSQLI_ASSOC)):; 
+            ?>
+                <option value="<?php echo $nationalities["nation_id"]?>"
+					<?php echo (isset($id1) && $id1 ==$nationalities["nation_id"]) ? 'selected' : '';
+                ?>
+			>
+                    <?php echo $nationalities["nation_name"];
+                    ?>
+                </option>
+            <?php 
+                endwhile; 
+            ?>
+        </select>
         <br>
+	    <label>Страна</label>
+     <select name="Country"><?php 
+                while ($countries = mysqli_fetch_array(
+                        $all_countries,MYSQLI_ASSOC)):; 
+            ?>
+                <option value="<?php echo $countries["country_id"]?>"
+					<?php echo (isset($id2) && $id2==$countries["country_id"]) ? 'selected' : '';
+                ?>
+			>
+                    <?php echo $countries["country_name"];
+                    ?>
+                </option>
+            <?php 
+                endwhile; 
+            ?>
+        </select>
+        <br>
+	    <label>Пол</label>
+     <select name="Gender"><?php 
+                         while ($genders = mysqli_fetch_array(
+                        $all_genders,MYSQLI_ASSOC)):; 
+            ?>
+                <option value="<?php echo $genders["gend_id"]?>"
+			<?php echo (isset($id3) && $id3=$genders["gend_id"]) ? 'selected' : '';
+                ?>
+				 >
+                    <?php echo $genders["gend_name"];
+                    ?>
+                </option>
+            <?php 
+                endwhile; 
+            ?>
+        </select>
+        <br>
+	    <label>Военная служба</label>
+     <select name="Milit_serve"><?php 
+                       while ($vid_mili_services = mysqli_fetch_array(
+                        $all_vid_mili_services,MYSQLI_ASSOC)):; 
+            ?>
+                <option value="<?php echo $vid_mili_services["vid_milit_serv_id"]?>"
+				<?php echo (isset($id4) && $id4=$vid_mili_services["vid_milit_serv_id"]) ? 'selected' :'';
+                ?>
+			>
+                    <?php echo $vid_mili_services["vid_milit_serv_name"];
+                    ?>
+                </option>
+            <?php 
+                endwhile; 
+            ?>
+        </select>
+        <br>
+	     <label>Документ о военной службе:</label>
+        <input type="text" name="document_mil" value="<?php echo isset($doc_mil) ? $doc_mil: '';?>" required><br>
+     <label>Домашний телефон:</label>
+        <input type="text" name="Telhome" value="<?php echo isset($tel1) ? $tel1: '';?>" required><br>
+     <label>Мобильный телефон:</label>
+        <input type="text" name="Telmob" value="<?php echo isset($tel2) ? $tel2: '';?>" required><br>
 	    <label>Средний бал:</label>
         <input type="number" name="sredbal" min="0" step="0.1" value="<?php echo isset($sred) ? $sred : ''; ?>"required>
      <br>
