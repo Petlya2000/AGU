@@ -58,21 +58,21 @@ if (isset($_GET['napr_id'])) {
     }
 }
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if(isset($_POST['q1']) {
     // Получаем данные из формы
     $anket_id = $_POST['ankety_id'];
     $date_submission = $_POST['date_submission'];
     $napr_id = $_POST['napr_id'];
-
     $osn_obuch_id = $_POST['osn_obuch_id'];
     $sector_langv_id = $_POST['sector_langv_id'];
     $form_obuch_id = $_POST['form_obuch_id'];
-
+    $q1=$_POST['q1'];
 
     // Выключение внешних ключей
     //$conn->query("SET foreign_key_checks = 0");
     // Подготовка SQL запроса для вставки данных
-    $sql = "INSERT INTO abiturient (anket_id, date_vibor_napr, napr_id, form_obuc_id, osn_obuch_id, sect_langv_id) 
-            VALUES ('$anket_id', '$date_submission', '$napr_id', '$form_obuch_id', '$osn_obuch_id', '$sector_langv_id')";
+    $sql = "INSERT INTO abiturient (anket_id, date_vibor_napr, napr_id, form_obuc_id, osn_obuch_id,living, sect_langv_id) 
+            VALUES ('$anket_id', '$date_submission', '$napr_id', '$form_obuch_id', '$osn_obuch_id','$q1' '$sector_langv_id')";
 
     // Выполнение SQL запроса
     if ($conn->query($sql) === TRUE) {
@@ -81,12 +81,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         $errors[] = "Ошибка: " . $stmt->error;
     }
-
     // Включение внешних ключей
    // $conn->query("SET foreign_key_checks = 1");
+}}
 
- 
-}
 
 
 
@@ -254,6 +252,11 @@ $conn->close();
                     </option>
                 <?php endwhile; ?>
             </select>
+            <label>Нужда в общежитии</label>
+       <br>
+     <input type="radio" name="q1" value="0"<?php echo (isset($q1) && $q1 == 0 ) ? ' checked' : '';?>> Нет<br>
+     <input type="radio" name="q1" value="1"<?php echo (isset($q1) && $q1 == 1 ) ? ' checked' : '';?>> Да<br>
+      <br>
         </div>
 
 
