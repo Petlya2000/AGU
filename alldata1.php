@@ -68,7 +68,9 @@ $result = mysqli_query($con, $sql_select);
         <form method="post" action="form.php">
             <input type="submit" value="Добавить запись">
         </form>
-      
+      <form method="post" action="Update.php">
+            <input type="submit" value="Update">
+        </form>
         <form method="post" action="read.php">
             <input type="text" name="nk" placeholder="ID поступающего">
             <input type="submit" value="Читать...">
