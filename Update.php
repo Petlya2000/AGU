@@ -242,4 +242,9 @@ $sql7 = "SELECT * FROM `languages`";
         <input type="submit" value="Обновить" name="update">
     </form>
 </body>
+	<form method='post' action='alldata1.php'><b/>
+<input id='submitread'  type='submit' value="Вернуться на главную"><b/><b/>
+</form>
+<form method="post" action="form.php">
+<input id="submitback" type="submit" value="К форме">
 </html>
