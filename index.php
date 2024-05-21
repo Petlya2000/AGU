@@ -3,9 +3,9 @@
 
 // Подключение к базе данных
 $servername = "localhost";
-$username = "";
-$password = "";
-$dbname = "";
+$username = "crud_user";
+$password = "q1w2e3";
+$dbname = "agu_priem";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
     // Выключение внешних ключей
-    $conn->query("SET foreign_key_checks = 0");
+    //$conn->query("SET foreign_key_checks = 0");
     // Подготовка SQL запроса для вставки данных
     $sql = "INSERT INTO abiturient (anket_id, date_vibor_napr, napr_id, form_obuc_id, osn_obuch_id, sect_langv_id) 
             VALUES ('$anket_id', '$date_submission', '$napr_id', '$form_obuch_id', '$osn_obuch_id', '$sector_langv_id')";
@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     // Включение внешних ключей
-    $conn->query("SET foreign_key_checks = 1");
+   // $conn->query("SET foreign_key_checks = 1");
 
  
 }
