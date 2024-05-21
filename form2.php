@@ -45,7 +45,8 @@ $sector_langv = $conn->query("SELECT sector_langv_id, name_langv_sect FROM secto
 // Получение данных по выбранному направлению
 if (isset($_GET['napr_id'])) {
     $napr_id = $_GET['napr_id'];
-    $napr_query = $conn->query("SELECT obr_progr, vid_ush_zav.vid_uch_zav_name AS vid_obr_name, fakultety.name AS fakultet_name, perech_napr_spec.form_obuch_id FROM perech_napr_spec
+    $napr_query = $conn->query("SELECT obr_progr, vid_ush_zav.vid_uch_zav_name AS vid_obr_name, fakultety.name AS fakultet_name, form_obuch.form_obuch_id AS form_obuch_id FROM perech_napr_spec
+                                JOIN form_obuch ON perech_napr_spec.form_obuch_id = form_obuch.form_obuch_id
                                 JOIN vid_ush_zav ON perech_napr_spec.vid_obr_id = vid_ush_zav.vid_uch_zav_id
                                 JOIN fakultety ON perech_napr_spec.facultet_id = fakultety.facultet_id
                                 WHERE napr_id = $napr_id");
@@ -57,8 +58,7 @@ if (isset($_GET['napr_id'])) {
         $form_obuch_id = $napr['form_obuch_id'];
     }
 }
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if(isset($_POST['q1']) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST'&&isset($_POST['q1'])) {
     // Получаем данные из формы
     $anket_id = $_POST['ankety_id'];
     $date_submission = $_POST['date_submission'];
@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $q1=$_POST['q1'];
 
     // Выключение внешних ключей
-    //$conn->query("SET foreign_key_checks = 0");
+    $conn->query("SET foreign_key_checks = 0");
     // Подготовка SQL запроса для вставки данных
     $sql = "INSERT INTO abiturient (anket_id, date_vibor_napr, napr_id, form_obuc_id, osn_obuch_id,living, sect_langv_id) 
             VALUES ('$anket_id', '$date_submission', '$napr_id', '$form_obuch_id', '$osn_obuch_id','$q1' '$sector_langv_id')";
@@ -82,8 +82,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $errors[] = "Ошибка: " . $stmt->error;
     }
     // Включение внешних ключей
-   // $conn->query("SET foreign_key_checks = 1");
-}}
+   $conn->query("SET foreign_key_checks = 1");
+}
 
 
 
