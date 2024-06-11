@@ -55,8 +55,8 @@ $sql7 = "SELECT * FROM `languages`";
 		$tel1=$row['tel_home'];
 		$tel2=$row['tel_mob'];
 		$id5=$row['uch_zav_id'];
-		$doc_edc=$row['document_educ'];
             $q1=$row['trud_st'];
+	    $q2=$row['LIVING'];
             $sred=$row['srednbal'];
 		
 			// $id=$row['reg_id'];
