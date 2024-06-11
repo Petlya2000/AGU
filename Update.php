@@ -247,6 +247,7 @@ $sql7 = "SELECT * FROM `languages`";
                 endwhile; 
             ?>
         </select>
+	<br>
 	    <label>Средний бал:</label>
         <input type="number" name="sredbal" min="0" step="0.1" value="<?php echo isset($sred) ? $sred : ''; ?>"required>
      <br>
