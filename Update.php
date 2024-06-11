@@ -3,19 +3,19 @@
 	$sql= "SELECT * FROM spr_region";
 	$all_regions= mysqli_query($con,$sql);
    // Get all the categories from category table
-    $sql = "SELECT * FROM `spr_region`";/
+    $sql = "SELECT * FROM `spr_region`";
     $all_regions = mysqli_query($con,$sql);
-    $sql1 = "SELECT * FROM `nationality`";/
+    $sql1 = "SELECT * FROM `nationality`";
     $all_nationalities = mysqli_query($con,$sql1);
-   $sql2 = "SELECT * FROM `countries`";/
+   $sql2 = "SELECT * FROM `countries`";
     $all_countries = mysqli_query($con,$sql2);
-     $sql3 = "SELECT * FROM `gender`";/
+     $sql3 = "SELECT * FROM `gender`";
     $all_genders = mysqli_query($con,$sql3);
-$sql4 = "SELECT * FROM `vid_mili_serv`";/
+$sql4 = "SELECT * FROM `vid_mili_serv`";
     $all_vid_mili_services = mysqli_query($con,$sql4);
- $sql5 = "SELECT * FROM `uch_zav`";/
+ $sql5 = "SELECT * FROM `uch_zav`";
     $all_uch_zaves = mysqli_query($con,$sql5);
-$sql6 = "SELECT * FROM `languages`";/
+$sql6 = "SELECT * FROM `languages`";
     $all_languages = mysqli_query($con,$sql6);
 $sql7 = "SELECT * FROM `languages`";
     $all_languages = mysqli_query($con,$sql6);
@@ -67,6 +67,7 @@ $sql7 = "SELECT * FROM `languages`";
     // Проверяем, была ли отправлена форма обновления данных
     if(isset($_POST['update'])) {
 		if(isset($_POST['q1'])&&isset($_POST['q2'])){
+	 $ankety_id = mysqli_real_escape_string($con,$_POST['Ankety_id']);
        $fam = mysqli_real_escape_string($con,$_POST['Ankety_fam']);
         $name = mysqli_real_escape_string($con,$_POST['Ankety_name1']);
         $otch = mysqli_real_escape_string($con,$_POST['Ankety_otch']);
