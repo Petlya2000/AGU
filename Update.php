@@ -66,7 +66,7 @@ $sql7 = "SELECT * FROM `languages`";
     }
     // Проверяем, была ли отправлена форма обновления данных
     if(isset($_POST['update'])) {
-		if(isset($_POST['q1'])){
+		if(isset($_POST['q1'])&&isset($_POST['q2'])){
        $fam = mysqli_real_escape_string($con,$_POST['Ankety_fam']);
         $name = mysqli_real_escape_string($con,$_POST['Ankety_name1']);
         $otch = mysqli_real_escape_string($con,$_POST['Ankety_otch']);
@@ -83,12 +83,13 @@ $sql7 = "SELECT * FROM `languages`";
         $id5 = mysqli_real_escape_string($con,$_POST['Uch_zav']);
        $doc_edc = mysqli_real_escape_string($con,$_POST['document_educ']);
 			 $q1=$_POST['q1'];
+			$q2=$_POST['q2'];
       $sred=$_POST['sredbal'];
         
         // Запрос на обновление данных в базе данных
         $sql_update = "UPDATE `ankety` SET `Ankety_fam`='$fam', `Ankety_name1`='$name', `Ankety_otch`='$otch', `date_birth`='$dob',`trud_st`='$q1',`reg_id`='$id',`document`='$doc',
 `nationality_id`='$id1',`country_id`='$id2',`gender_id`='$id3',`vid_milit_serv_id`='$id4',`uch_zav_id`='$id5',`document_mil`='$doc_mil',`tel_home`='$tel1',`tel_mob`='$tel2',
-`trud_st`='$q1',`srednbal`='$sred'
+`trud_st`='$q1',`srednbal`='$sred', `LIVING`='$q2'
  WHERE `Ankety_id`='$ankety_id'";
         if(mysqli_query($con, $sql_update)) {
             echo '<script>alert("Data updated successfully")</script>';
@@ -252,6 +253,11 @@ $sql7 = "SELECT * FROM `languages`";
        <br>
      <input type="radio" name="q1" value="0"<?php echo (isset($q1) && $q1 == 0 ) ? ' checked' : '';?>> Нет<br>
      <input type="radio" name="q1" value="1"<?php echo (isset($q1) && $q1 == 1 ) ? ' checked' : '';?>> Да<br>
+      <br>
+	    <label>Нужда вобщежитии</label>
+       <br>
+     <input type="radio" name="q2" value="0"<?php echo (isset($q2) && $q2 == 0 ) ? ' checked' : '';?>> Нет<br>
+     <input type="radio" name="q2" value="1"<?php echo (isset($q2) && $q2 == 1 ) ? ' checked' : '';?>> Да<br>
       <br>
         <br>
         <input type="submit" value="Обновить" name="update">
