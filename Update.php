@@ -54,8 +54,8 @@ $sql7 = "SELECT * FROM `languages`";
 		$doc_mil=$row['document_mil'];
 		$tel1=$row['tel_home'];
 		$tel2=$row['tel_mob'];
-		$id5=$row[`uch_zav_id`];
-		$doc_edc=$row[`document_educ`];
+		$id5=$row['uch_zav_id'];
+		$doc_edc=$row['document_educ'];
             $q1=$row['trud_st'];
             $sred=$row['srednbal'];
 		
@@ -87,7 +87,7 @@ $sql7 = "SELECT * FROM `languages`";
         
         // Запрос на обновление данных в базе данных
         $sql_update = "UPDATE `ankety` SET `Ankety_fam`='$fam', `Ankety_name1`='$name', `Ankety_otch`='$otch', `date_birth`='$dob',`trud_st`='$q1',`reg_id`='$id',`document`='$doc',
-`nationality_id`='$id1',`country_id`='$id2',`gender_id`='$id3',`vid_milit_serv_id`='$id3',`document_mil`='$doc_mil',`tel_home`='$tel1',`tel_mob`='$tel2',
+`nationality_id`='$id1',`country_id`='$id2',`gender_id`='$id3',`vid_milit_serv_id`='$id4',`uch_zav_id`='$id5',`document_mil`='$doc_mil',`tel_home`='$tel1',`tel_mob`='$tel2',
 `trud_st`='$q1',`srednbal`='$sred'
  WHERE `Ankety_id`='$ankety_id'";
         if(mysqli_query($con, $sql_update)) {
@@ -235,7 +235,7 @@ $sql7 = "SELECT * FROM `languages`";
                         $all_uch_zaves,MYSQLI_ASSOC)):; 
             ?>
                 <option value="<?php echo $uch_zaves["uch_zav_id"]?>"
-				<?php echo (isset($id5) && $id5=$uch_zaves["vid_milit_serv_id"]) ? 'selected' :'';
+				<?php echo (isset($id5) && $id5=$uch_zaves["uch_zav_id"]) ? 'selected' :'';
                 ?>
 			>
                     <?php echo $uch_zaves["uch_zav_name"];
