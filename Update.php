@@ -82,7 +82,6 @@ $sql7 = "SELECT * FROM `languages`";
        $tel1 = mysqli_real_escape_string($con,$_POST['Telhome']);
        $tel2 = mysqli_real_escape_string($con,$_POST['Telmob']);
         $id5 = mysqli_real_escape_string($con,$_POST['Uch_zav']);
-       $doc_edc = mysqli_real_escape_string($con,$_POST['document_educ']);
 			 $q1=$_POST['q1'];
 			$q2=$_POST['q2'];
       $sred=$_POST['sredbal'];
@@ -197,7 +196,7 @@ $sql7 = "SELECT * FROM `languages`";
                         $all_genders,MYSQLI_ASSOC)):; 
             ?>
                 <option value="<?php echo $genders["gend_id"]?>"
-			<?php echo (isset($id3) && $id3=$genders["gend_id"]) ? 'selected' : '';
+			<?php echo (isset($id3) && $id3==$genders["gend_id"]) ? 'selected' : '';
                 ?>
 				 >
                     <?php echo $genders["gend_name"];
@@ -214,7 +213,7 @@ $sql7 = "SELECT * FROM `languages`";
                         $all_vid_mili_services,MYSQLI_ASSOC)):; 
             ?>
                 <option value="<?php echo $vid_mili_services["vid_milit_serv_id"]?>"
-				<?php echo (isset($id4) && $id4=$vid_mili_services["vid_milit_serv_id"]) ? 'selected' :'';
+				<?php echo (isset($id4) && $id4==$vid_mili_services["vid_milit_serv_id"]) ? 'selected' :'';
                 ?>
 			>
                     <?php echo $vid_mili_services["vid_milit_serv_name"];
@@ -237,7 +236,7 @@ $sql7 = "SELECT * FROM `languages`";
                         $all_uch_zaves,MYSQLI_ASSOC)):; 
             ?>
                 <option value="<?php echo $uch_zaves["uch_zav_id"]?>"
-				<?php echo (isset($id5) && $id5=$uch_zaves["uch_zav_id"]) ? 'selected' :'';
+				<?php echo (isset($id5) && $id5==$uch_zaves["uch_zav_id"]) ? 'selected' :'';
                 ?>
 			>
                     <?php echo $uch_zaves["uch_zav_name"];
