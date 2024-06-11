@@ -1,22 +1,21 @@
 <?php
     require_once 'conn.php';
-	
 	$sql= "SELECT * FROM spr_region";
 	$all_regions= mysqli_query($con,$sql);
    // Get all the categories from category table
-    $sql = "SELECT * FROM `spr_region`";
+    $sql = "SELECT * FROM `spr_region`";/
     $all_regions = mysqli_query($con,$sql);
-    $sql1 = "SELECT * FROM `nationality`";
+    $sql1 = "SELECT * FROM `nationality`";/
     $all_nationalities = mysqli_query($con,$sql1);
-   $sql2 = "SELECT * FROM `countries`";
+   $sql2 = "SELECT * FROM `countries`";/
     $all_countries = mysqli_query($con,$sql2);
-     $sql3 = "SELECT * FROM `gender`";
+     $sql3 = "SELECT * FROM `gender`";/
     $all_genders = mysqli_query($con,$sql3);
-$sql4 = "SELECT * FROM `vid_mili_serv`";
+$sql4 = "SELECT * FROM `vid_mili_serv`";/
     $all_vid_mili_services = mysqli_query($con,$sql4);
- $sql5 = "SELECT * FROM `uch_zav`";
+ $sql5 = "SELECT * FROM `uch_zav`";/
     $all_uch_zaves = mysqli_query($con,$sql5);
-$sql6 = "SELECT * FROM `languages`";
+$sql6 = "SELECT * FROM `languages`";/
     $all_languages = mysqli_query($con,$sql6);
 $sql7 = "SELECT * FROM `languages`";
     $all_languages = mysqli_query($con,$sql6);
@@ -24,15 +23,15 @@ $sql7 = "SELECT * FROM `languages`";
     if(isset($_POST['submit'])) {
         // Получаем ID записи из формы
         $ankety_id = mysqli_real_escape_string($con, $_POST['Ankety_id']);
-
-
-		
-
         // Запрос к базе данных для получения информации о записи по ее ID
         $sql_select = "SELECT * FROM ankety 
                INNER JOIN spr_region ON ankety.reg_id = spr_region.id_region 
                INNER JOIN gender ON ankety.gender_id = gender.gend_id 
-               INNER JOIN nationality ON ankety.nationality_id = nationality.nation_id 
+               INNER JOIN nationality ON ankety.nationality_id = nationality.nation_id
+	       INNER JOIN countries ON ankety.country_id = countries.country_id
+		INNER JOIN vid_mili_serv ON ankety.vid_milit_serv_id = vid_mili_serv.vid_milit_serv_id
+  		INNER JOIN uch_zav ON ankety.uch_zav_id = uch_zav.uch_zav_id
+    		INNER JOIN languages ON ankety.language_id = languages.language_id
                WHERE `Ankety_id`='$ankety_id'";
         $result = mysqli_query($con, $sql_select);
         $row = mysqli_fetch_assoc($result);
@@ -59,12 +58,12 @@ $sql7 = "SELECT * FROM `languages`";
 		$doc_edc=$row[`document_educ`];
             $q1=$row['trud_st'];
             $sred=$row['srednbal'];
+		
 			// $id=$row['reg_id'];
 
             // Заполните остальные поля аналогичным образом
         }
     }
-
     // Проверяем, была ли отправлена форма обновления данных
     if(isset($_POST['update'])) {
 		if(isset($_POST['q1'])){
@@ -230,6 +229,22 @@ $sql7 = "SELECT * FROM `languages`";
         <input type="text" name="Telhome" value="<?php echo isset($tel1) ? $tel1: '';?>" required><br>
      <label>Мобильный телефон:</label>
         <input type="text" name="Telmob" value="<?php echo isset($tel2) ? $tel2: '';?>" required><br>
+	    <label>Учебное заведение</label>
+     <select name="Uch_zav"><?php 
+                       while ($uch_zaves = mysqli_fetch_array(
+                        $all_uch_zaves,MYSQLI_ASSOC)):; 
+            ?>
+                <option value="<?php echo $uch_zaves["uch_zav_id"]?>"
+				<?php echo (isset($id5) && $id5=$uch_zaves["vid_milit_serv_id"]) ? 'selected' :'';
+                ?>
+			>
+                    <?php echo $uch_zaves["uch_zav_name"];
+                    ?>
+                </option>
+            <?php 
+                endwhile; 
+            ?>
+        </select>
 	    <label>Средний бал:</label>
         <input type="number" name="sredbal" min="0" step="0.1" value="<?php echo isset($sred) ? $sred : ''; ?>"required>
      <br>
